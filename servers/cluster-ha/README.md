@@ -83,19 +83,22 @@ VIP e Apache estão agrupados — migram juntos para o mesmo servidor durante o 
 
 ---
 
-## 📁 Estrutura do Repositório
-
+## 📁 Estrutura do Projeto
+ 
 ```
 cluster-ha/
-├── README.md
+├── README.md                      # Documentação principal
 ├── configs/
-│   ├── corosync.conf          # Configuração do Corosync
-│   └── netplan.yaml           # Configuração de rede (IP estático)
+│   ├── corosync.conf              # Configuração do Corosync
+│   └── netplan.yaml               # Configuração de rede (IP estático)
 ├── docs/
-│   ├── passo-a-passo.md       # Guia completo de instalação
-│   └── conceitos.md           # Explicação de cada componente
-└── media/
-    ├── fotos/                 # Fotos do lab físico
+│   ├── passo-a-passo.md           # Guia completo de instalação com comandos
+│   └── conceitos.md               # Explicação de cada componente
+├── media/
+│   ├── servers-fisicos.jpeg       # Foto do lab físico
+│   └── cluster-video.mp4          # Vídeo do failover funcionando
+└── web/
+    └── index.html                 # Página de teste do failover
 ```
 
 ---
