@@ -1,0 +1,37 @@
+1.1.1 Sêquencia de inicialização do Switch
+    Este tóppico explica a sêquencia de inicialização do switch, pois antes mesmos de começármos a configuração
+o switch para por 5 etapas de inicialização:
+    Etapa 1: Primeiro, o switch carrega um programa POST (Power-on Self-Test) onde é armazenado na ROM.
+POST verifica o subsistema da CPU, ELetesta a CPU, DRAM e a parte de flash que compõe o sistema de arquivos flash.
+    Etapa 2: Depois, o switch carrega o software carregador de inicialização. O carregador de inicialização (boot loader)
+ é um programa pequeno armazenado na ROM que é executada imediatamente após a conclusão bem-sucedida do POST.
+    Etapa 3: O carregador de inicialização executa inicialização de baixo nível da CPU. Ele inicializa os registros da CPU,
+que controlam onde a memória física é mapeada, a quantidade de memória e sua velocidade.
+    Etapa 4: O carregador de inicialização (boot loader) inicializa o sistema de arquivos da memória flash na placa do sistema.
+    Etapa 5: Finalmente, o carregador de inicialização localiza e carrega uma imagem do software de sistema operacional IOS padrão na memória e passa o controle do switch para o IOS.
+
+1.1.2 O comando boot system
+     Nesta etapa temos o nosso comando BOOT o que seria isso? Quando switch tenta incializar ele procura uma váriavel chamada BOOT por que nessa váriavel temos o PATH "caminho" do nosso arquivo .bin,
+este arquivo bin é onde temos a ISO do nosso sistema operacional em switches cisco chamamos de IOS, caso a variavel não foi configurada ou não tem por algum motivo, o switch entra em um modo de "sobrevivência" por que ele começa a buscar na memória o primeiro arquivo executavel.
+    Aqui temos um exemplo da váriavel de ambiente BOOT ela é definida usando o comando de modo de configuração boot system 
+                           Example: "S1(config)# boot system flash:/c2960-lanbasek9-mz.150-2.SE/c2960-lanbasek9-mz.150-2.SE.bin"
+    boot system = o comando principal
+    flash = o dispositivo de armazenamento
+    c2960-lanbasek9-mz.150-2.SE/ = o caminho para o sistema de arquivos
+    c2960-lanbasek9-mz.150-2.SE.bin = o nome do arquivo IOS.
+
+1.1.3 Alternar indicadores LED 
+    Aqui temos a explicação dos indicadores de led dos switches catalyst. Podemos usar os LEDs do switch para monitorar rapidameente o desempenho e atividade do switch. Os interruptores de diferentes modelos e recursos terão LEDs diferentese sua colocação no painel frontal pode variar.
+    Segue logo abaixo a explicação de cada finalidade dos indicadores LED:
+    1- SYST - LED de Sistema: Mostra de o sistema está recebendo energia e está funcionando corretamente. Se o LED estiver desligado significa que o sistema está desligado. Se o LED estiver verde, o sistema está funcionando normalmente. Se o LED estiver âmbar, o sistema está recebendo energia mas não está funcionando corretamente.
+    2- RPS - LED do sistema redundandte de fonte: Mostra o status do RPS. Se o LED estiver apagado, o RPS está desativado ou não foi conectado corretamente. Se o LED estiver verde, o RPS está conectado e pronto para fornecer energia reserva. Se o LED estiver piscando em verde, o RPS está conectado mas não está disponível porque está fornecendo energia para outro dispositivo. 
+        Se o LED estiver amarelo, o RPS está no modo de espera ou em uma condição de falha. Se o LED estiver piscando na cor âmbar, a fonte de alimentação interna do comutador falhou e o RPS está fornecendo energia.
+    3- Indica que o modo de status da porta está selecionado quando o LED está verde. Este é o modo padrão. Quando selecionado, os LEDs de porta exibirão cores com significados diferentes. Se o LED estiver apagado, não há link ou a porta foi desligada administrativamente. Se o LED estiver verde, um link está presente. Se o LED estiver piscando em verde, há atividade e a porta está enviando ou recebendo dados. 
+        Se o LED estiver alternando verde-âmbar, há uma falha de link. Se o LED estiver amarelo, a porta está bloqueada para garantir que não exista nenhum loop no domínio de encaminhamento e que este não esteja enviando dados (normalmente, as portas permanecerão nesse estado por aproximadamente 30 segundos após serem ativadas). Se o LED estiver piscando em âmbar, a porta será bloqueada para evitar um possível loop no domínio de encaminhamento.
+    4- DUPLX - LED da porta duplex Indica que o modo duplex da porta está selecionado.
+    5- SPEED - Indica que o modo de velocidade da porta está selecionado. Quando selecionado, os LEDs de porta exibirão cores com significados diferentes. Se o LED estiver apagado, a porta está operando a 10 Mbps. Se o LED estiver verde, a porta está operando a 100 Mbps. Se o LED estiver piscando em verde, a porta está operando a 1000 Mbps.
+    6- PoE - LEde do modo Power over Ethernet Se PoE for suportado, um LED de modo PoE estará presente. Se o LED estiver desligado, indica que o modo PoE não está selecionado e que nenhuma das portas foi negada energia ou colocada em uma condição de falha. Se o LED estiver piscando em âmbar, o modo PoE não está selecionado, mas pelo menos uma das portas foi negada energia ou tem uma falha PoE. Se o LED estiver verde, ele indica que o modo PoE está selecionado e os LEDs da porta exibirão cores com significados diferentes. 
+        Se o LED da porta estiver desligado, o PoE está desligado. Se o LED da porta estiver verde, o PoE estará ligado. Se o LED da porta estiver alternando verde âmbar, PoE será negado porque o fornecimento de energia ao dispositivo alimentado excederá a capacidade de alimentação do switch. Se o LED estiver piscando âmbar, PoE está desligado devido a uma falha. Se o LED estiver âmbar, o PoE para a porta foi desativado.
+    
+1.1.4 Recuperando de um travamento de sistema
+    Neste capítulo vamos aprender como recupear após um travamento de sistema
