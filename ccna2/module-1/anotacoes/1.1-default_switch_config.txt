@@ -93,3 +93,10 @@
         Passo 2: Configurar o gateway padrão
             Entre no modo de configuração = # configure terminal
             Configure o gateway padrão do switch = # ip default-gateway 172.17.99.1
+            Volte para o modo EXEC privilegiado = # end
+            Salvar a configuração = # copy running-config startup-config
+        
+        Passo 3: Verificar Configuração
+            Comando para verificar: # show ip interface brief
+        
+1.1.7 Laboratório- Configuraçào básica de Switch
