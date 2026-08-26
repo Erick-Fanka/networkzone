@@ -1,6 +1,6 @@
 <div align="center">
 
-# 🌐 Network Zone
+# 🌐 Networks
 
 **Projetos, configurações e laboratórios práticos focados em infraestrutura de redes de computadores.**
 
